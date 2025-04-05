@@ -374,6 +374,18 @@ class QuantumBB84GUI(QMainWindow):
         self.eavesdropping_label.setStyleSheet("font-weight: bold;")
         layout.addWidget(self.eavesdropping_label)
         
+        # Добавляем информационную панель с пояснениями
+        info_label = QLabel(
+            "Примечание: Красные квадратики (✗) указывают на места, где базисы Алисы и Боба не совпали. "
+            "В этих позициях измеренные Бобом биты могут отличаться от исходных битов Алисы из-за "
+            "квантового эффекта измерения в неправильном базисе. Это нормальное явление в протоколе BB84 "
+            "и не считается ошибкой. Частота ошибок вычисляется только для позиций с совпадающими "
+            "базисами (зеленые квадратики ✓)."
+        )
+        info_label.setWordWrap(True)
+        info_label.setStyleSheet("font-style: italic; color: #555;")
+        layout.addWidget(info_label)
+        
         group_box.setLayout(layout)
         return group_box
     
